@@ -5,18 +5,15 @@ import { ThemeContext } from '../context/theme';
 
 const Form = props => {
   const { theme } = useContext(ThemeContext);
-
   const { tasks, setTasks } = props;
 
   const onSubmit = e => {
     e.preventDefault();
 
-    // tostring all values?
-    const formData = new FormData(e.target);
     const task = {
       id: new Date().getTime(),
-      title: formData.get('title'),
-      note: formData.get('description'),
+      title: e.target.querySelector('#title').value,
+      note: e.target.querySelector('#note').value,
       done: false,
     };
 
@@ -29,14 +26,9 @@ const Form = props => {
 
   return (
     <form className={`form ${theme}`} onSubmit={e => onSubmit(e)}>
-      <label htmlFor="title" className="form__label">
-        Title:
-        <input type="text" className="form__input" id="title" name="title" placeholder="Add a title..." required />
-      </label>
-      <label htmlFor="note" className="form__label">
-        Note:
-        <textarea className="form__input" id="note" name="note" placeholder="Add a note..." rows="3" />
-      </label>
+      <h2>Register New ToDos</h2>
+      <input type="text" className="form__input" id="title" name="title" placeholder="Add a title..." required />
+      <textarea className="form__input" id="note" name="note" placeholder="Add a note..." rows="3" />
       <input type="submit" className="form__button" value="Add ToDo" />
     </form>
   );

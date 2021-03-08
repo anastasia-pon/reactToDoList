@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-const Footer = () => (
-  <footer>
-    <p>© 2021</p>
-  </footer>
-);
+import { ThemeContext } from '../context/theme';
+
+const Footer = () => {
+  const { theme } = useContext(ThemeContext);
+  return (
+    <footer className={`footer ${theme}`}>
+      <p>© 2021</p>
+    </footer>
+  );
+};
 
 export default Footer;

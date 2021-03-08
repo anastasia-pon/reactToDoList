@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { render, screen } from '@testing-library/react';
 import ReactTestUtils from 'react-dom/test-utils';
 
+import { ThemeProvider } from '../context/theme';
 import List from './List';
 
 const Test = () => {
@@ -21,7 +22,7 @@ const Test = () => {
     },
   ]);
   return (
-    <List tasks={tasks} setTasks={setTasks} />
+    <ThemeProvider><List tasks={tasks} setTasks={setTasks} /></ThemeProvider>
   );
 };
 
@@ -33,7 +34,7 @@ test('list renders without crashing', () => {
     done: true,
   }];
   const div = document.createElement('div');
-  ReactDOM.render(<List tasks={tasks} setTasks={e => e} />, div);
+  ReactDOM.render(<ThemeProvider><List tasks={tasks} setTasks={e => e} /></ThemeProvider>, div);
 });
 
 test('list renders Clear List button', () => {
@@ -45,7 +46,7 @@ test('list renders Clear List button', () => {
 test('list renders list', () => {
   render(<Test />);
   const button = screen.getByText('Clear All');
-  const list = button.nextElementSibling.classList.contains('list');
+  const list = button.parentNode.classList.contains('list');
   expect(list).toBe(true);
 });
 
@@ -56,15 +57,6 @@ test('list renders two tasks', () => {
 
   const task2 = screen.getByText('Water plants');
   expect(task2).toBeInTheDocument();
-});
-
-test('list renders only a message if no tasks are supplied', () => {
-  render(<List tasks={[]} setTasks={test => test} />);
-  const message = screen.queryByText('There are no ToDos');
-  expect(message).toBeInTheDocument();
-
-  const button = screen.queryByText('Clear All');
-  expect(button).toBeNull();
 });
 
 test('task renders as done if done', () => {

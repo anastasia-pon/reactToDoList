@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Montserrat&display=swap');
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.app.light {
+  background:
+    radial-gradient(50% 30% ellipse at center top, #a4ebf3 0%, rgba(255, 255, 255, 0) 100%),
+    radial-gradient(60% 50% ellipse at center bottom, #ccf2f4 0%, #f4f9f9 100%);
+}
+
+.app.dark {
+  background:
+    radial-gradient(50% 30% ellipse at center top, #201e40 0%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(60% 50% ellipse at center bottom, #261226 0%, #100a1c 100%);
+  color: #fff;
+}
+
+/*----------------- Header -------------------*/
+
+.header {
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+@media only screen and (min-width: 380px) {
+  .header {
+    min-width: 350px;
+  }
+  .header__toggle-btn {
+    top: 5em;
+  }
+}
+
+@media only screen and (min-width: 520px) {
+  .header {
+    min-width: 500px;
+  }
+  .header__toggle-btn {
+    top: none;
+  }
+}
+
+.header h1 {
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 3em;
+}
+
+.header__toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 6em;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.header__toggle-btn input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.header__toggle-btn__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2196F3;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.header__toggle-btn__slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.header__toggle-btn input:checked + .header__toggle-btn__slider {
+  box-shadow: 0 0 20px #fff;
+  background-color: #002646;
+}
+
+.header__toggle-btn input:focus + .header__toggle-btn__slider {
+  box-shadow: 0 0 20px #fff;
+}
+
+.header__toggle-btn input:checked + .header__toggle-btn__slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.header__toggle-btn__slider {
+  border-radius: 34px;
+}
+
+.header__toggle-btn__slider:before {
+  border-radius: 50%;
+}
+
+/*----------------- Main -------------------*/
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 9em;
+}
+
+/*----------------- Main -> Form -------------------*/
+
+.form {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 280px;
+  border-radius: 2px;
+}
+
+.form.light {
+  background-color: transparent;
+}
+
+@media only screen and (min-width: 380px) {
+  .form {
+    min-width: 350px;
+  }
+  .form.light {
+    background-color: #fff;
+  }
+}
+
+@media only screen and (min-width: 520px) {
+  .form {
+    min-width: 500px;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.form h2 {
+  margin: 2em 0 1em;
+  font-size: 1.2em;
+}
+
+.form__input {
+  margin: 0.5em 2.5em;
+  padding: 0.5em;
+  background-color: #eaffff;
+  border: none;
+  border-color: #a4ebf3;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.form__input:focus {
+  outline: 0;
+  background-color: transparent;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+  transition: all 0.3s;
+}
+
+.dark .form__input:focus {
+  color: #fff;
+}
+
+.form__button {
+  margin: 0.5em 2.5em 2.5em;
+  padding: 0.8em;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.light .form__button {
+  background-color: #a4ebf3;
+  border-color: #009cad;
+}
+
+.dark .form__button {
+  background-color: transparent;
+  border: solid 1px #a4ebf3;
+  color: #fff;
+}
+
+.light .form__button:hover {
+  background-color: #a4ebf39c;
+  transition: all 0.3s;
+}
+
+.dark .form__button:hover {
+  background-color: #a4ebf3;
+  color: #000;
+  transition: all 0.3s;
+}
+
+.light .form__button:focus {
+  outline: 0;
+  border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+}
+
+.dark .form__button:focus {
+  outline: 0;
+  border-color: #009cad;
+}
+
+/*----------------- Main -> List -------------------*/
+
+.list {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (min-width: 380px) {
+  .list {
+    min-width: 350px;
+  }
+}
+
+@media only screen and (min-width: 520px) {
+  .list {
+    min-width: 500px;
+  }
+}
+
+.list__button {
+  margin: 1em 2.5em;
+  width: 85px;
+  align-self: flex-end;
+  padding: 0.5em;
+  border: none;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.light .list__button {
+  background-color: #a4ebf3;
+  border-color: #009cad;
+}
+
+.dark .list__button {
+  background-color: transparent;
+  border: solid 1px #a4ebf3;
+  color: #fff;
+}
+
+.list__button:hover {
+  background-color: #a4ebf39c;
+  transition: all 0.3s;
+}
+
+.dark .list__button:hover {
+  background-color: #a4ebf3;
+  color: #000;
+  transition: all 0.3s;
+}
+
+.list__button:focus {
+  outline: 0;
+  border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+}
+
+.dark .list__button:focus {
+  outline: 0;
+  border-color: #009cad;
+}
+
+.card {
+  max-width: 500px;
+  padding: 1em 2.5em;
+  margin-bottom: 1em;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.dark .card {
+  background-color: #eaffff;
+  color: #000;
+}
+
+.card:focus {
+  outline: 0;
+  border: solid 1px #a4ebf3;
+  transition: all 0.3s;
+}
+
+.dark .card:focus {
+  outline: 0;
+  border: solid 3px #68dfec;
+}
+
+.card__checkbox {
+  margin-right: 0.5em;
+  font-size: 2em;
+  color: #aaaaaa;
+}
+
+.card__title {
+  display: inline;
+  vertical-align: text-bottom;
+  line-height: 2em;
+}
+
+.card__note {
+  margin-top: 0.5em;
+}
+
+.card.status--done {
+  order: 1;
+  background-color: transparent;
+  border: dashed 1px #aaaaaa;
+}
+
+.dark .card.status--done {
+  color: #fff;
+}
+
+.card__button {
+  float: right;
+  padding: 0.5em;
+  background-color: #a4ebf3;
+  border: none;
+  border-color: #009cad;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.dark .card__button {
+  background-color: transparent;
+  border: solid 1px #a4ebf3;
+  color: #fff;
+}
+
+.dark .card__button:hover {
+  background-color: #a4ebf3;
+  color: #000;
+  transition: all 0.3s;
+}
+
+.dark .card__button:focus {
+  outline: 0;
+  border-color: #009cad;
+}
+
+.card__button:hover {
+  background-color: #a4ebf39c;
+  transition: all 0.3s;
+}
+
+.card__button:focus {
+  outline: 0;
+  border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+}
+
+/*----------------- Footer -------------------*/
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 9em;
+}

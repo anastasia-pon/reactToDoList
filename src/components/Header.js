@@ -8,13 +8,17 @@ const Header = () => {
   return (
     <header className={`header ${theme}`}>
       <h1>ToDo List</h1>
-      <button
-        className="header__toggle-btn"
-        type="button"
-        onClick={themeToggle}
-      >
-        {theme === 'light' ? 'Dark' : 'Light'}
-      </button>
+      <div />
+      <label htmlFor="theme__toggle" className="header__toggle-btn">
+        <input
+          id="theme__toggle"
+          type="checkbox"
+          onClick={themeToggle}
+          onKeyUp={e => (e.key === 'Enter' ? themeToggle() : null)}
+          defaultChecked={theme === 'dark'}
+        />
+        <span className="header__toggle-btn__slider" />
+      </label>
     </header>
   );
 };

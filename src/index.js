@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { ThemeProvider } from './context/theme';
+import './styles/reset.css';
 
+import { ThemeProvider } from './context/theme';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 

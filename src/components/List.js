@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
+import { ThemeContext } from '../context/theme';
 import Task from './Task';
 
 const List = props => {
+  const { theme } = useContext(ThemeContext);
+
   const { tasks, setTasks } = props;
 
   if (!tasks[0]) {
-    return (
-      <div className="list">
-        <p className="list">There are no ToDos</p>
-      </div>
-    );
+    return null;
   }
 
   const onToggle = taskId => {
@@ -32,7 +31,7 @@ const List = props => {
   };
 
   return (
-    <>
+    <div className={`list ${theme}`}>
       <input
         type="button"
         className="list__button"
@@ -40,17 +39,15 @@ const List = props => {
         onClick={() => onClear()}
         onKeyUp={e => (e.key === 'Enter' ? onClear() : null)}
       />
-      <div className="list">
-        {tasks.map(task => (
-          <Task
-            task={task}
-            onToggle={onToggle}
-            onRemove={onRemove}
-            key={task.id}
-          />
-        ))}
-      </div>
-    </>
+      {tasks.map(task => (
+        <Task
+          task={task}
+          onToggle={onToggle}
+          onRemove={onRemove}
+          key={task.id}
+        />
+      ))}
+    </div>
   );
 };
 

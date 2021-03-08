@@ -19,8 +19,9 @@ const Task = props => {
       onClick={() => onToggle(task.id)}
       onKeyUp={e => (e.key === 'Enter' ? onToggle(task.id) : null)}
     >
+      {task.done ? <i className="card__checkbox far fa-check-square" /> : <i className="card__checkbox far fa-square" />}
       <p className="card__title">{task.title}</p>
-      <p className="card__note">{task.note}</p>
+      {task.note ? <p className="card__note">{task.note}</p> : null}
       {task.done
         ? (
           <button

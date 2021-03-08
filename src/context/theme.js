@@ -6,11 +6,12 @@ export const ThemeContext = createContext();
 export const ThemeProvider = props => {
   const { children } = props;
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => JSON.parse(localStorage.getItem('toDoListTheme')) || 'light');
 
-  const themeToggle = () => (theme === 'light' ? setTheme('dark') : setTheme('light'));
-  // setDark(!dark);
-  // window.localStorage.setItem('darkTheme', !dark);
+  const themeToggle = () => {
+    localStorage.setItem('toDoListTheme', JSON.stringify(theme === 'light' ? 'dark' : 'light'));
+    return theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, themeToggle }}>
@@ -20,7 +21,10 @@ export const ThemeProvider = props => {
 };
 
 ThemeProvider.propTypes = {
-  children: PropTypes.arrayOf(
-    PropTypes.any,
-  ).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(
+      PropTypes.any,
+    ),
+    PropTypes.object,
+  ]).isRequired,
 };

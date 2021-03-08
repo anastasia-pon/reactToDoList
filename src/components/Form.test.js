@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { render, screen } from '@testing-library/react';
 
+import { ThemeProvider } from '../context/theme';
 import Form from './Form';
 
 const Test = () => {
@@ -20,7 +21,7 @@ const Test = () => {
     },
   ]);
   return (
-    <Form tasks={tasks} setTasks={setTasks} />
+    <ThemeProvider><Form tasks={tasks} setTasks={setTasks} /></ThemeProvider>
   );
 };
 
@@ -32,25 +33,13 @@ test('form renders without crashing', () => {
     done: true,
   }];
   const div = document.createElement('div');
-  ReactDOM.render(<Form tasks={tasks} setTasks={e => e} />, div);
-});
-
-test('form renders title label', () => {
-  render(<Test />);
-  const titleLabel = screen.getByText(/Title:/i);
-  expect(titleLabel).toBeInTheDocument();
+  ReactDOM.render(<ThemeProvider><Form tasks={tasks} setTasks={e => e} /></ThemeProvider>, div);
 });
 
 test('form renders title input', () => {
   render(<Test />);
   const titleField = screen.getByPlaceholderText(/Add a title.../i);
   expect(titleField).toBeInTheDocument();
-});
-
-test('form renders note label', () => {
-  render(<Test />);
-  const noteLabel = screen.getByText(/Note:/i);
-  expect(noteLabel).toBeInTheDocument();
 });
 
 test('form renders note input', () => {

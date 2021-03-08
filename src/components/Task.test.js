@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { render, screen } from '@testing-library/react';
 
+import { ThemeProvider } from '../context/theme';
 import Task from './Task';
 
 const Test = () => {
@@ -21,13 +22,15 @@ const Test = () => {
   ]);
 
   return tasks.map(task => (
-    <Task
-      task={task}
-      onToggle={e => e}
-      onRemove={e => e}
-      tabIndex={-1}
-      key={task.id}
-    />
+    <ThemeProvider key={task.id}>
+      <Task
+        task={task}
+        onToggle={e => e}
+        onRemove={e => e}
+        tabIndex={-1}
+        key={task.id}
+      />
+    </ThemeProvider>
   ));
 };
 
@@ -39,7 +42,11 @@ test('task renders without crashing', () => {
     done: true,
   };
   const div = document.createElement('div');
-  ReactDOM.render(<Task task={task} onToggle={e => e} onRemove={e => e} tabIndex={-1} />, div);
+  ReactDOM.render(
+    <ThemeProvider>
+      <Task task={task} onToggle={e => e} onRemove={e => e} tabIndex={-1} />
+    </ThemeProvider>, div,
+  );
 });
 
 test('task renders title', () => {

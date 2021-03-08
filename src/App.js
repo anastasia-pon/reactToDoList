@@ -7,7 +7,7 @@ import Form from './components/Form';
 import List from './components/List';
 import Footer from './components/Footer';
 
-import './App.css';
+import './styles/main.css';
 
 const App = () => {
   const { theme } = useContext(ThemeContext);
@@ -20,13 +20,14 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <main className={`main ${theme}`}>
-        <h2>Register New ToDo</h2>
-        <Form tasks={tasks} setTasks={setTasks} />
-        <List tasks={tasks} setTasks={setTasks} />
-      </main>
-      <Footer />
+      <div className={`app ${theme}`}>
+        <Header />
+        <main className="main">
+          <Form tasks={tasks} setTasks={setTasks} />
+          <List tasks={tasks} setTasks={setTasks} />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };
