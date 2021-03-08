@@ -35,17 +35,11 @@
   .header {
     min-width: 350px;
   }
-  .header__toggle-btn {
-    top: 5em;
-  }
 }
 
 @media only screen and (min-width: 520px) {
   .header {
     min-width: 500px;
-  }
-  .header__toggle-btn {
-    top: none;
   }
 }
 
@@ -63,6 +57,18 @@
   height: 34px;
 }
 
+@media only screen and (min-width: 380px) {
+  .header__toggle-btn {
+    position: absolute;
+    top: 5em;
+  }
+}
+
+@media only screen and (min-width: 520px) {
+  .header__toggle-btn {
+    top: 3em;
+  }
+}
 .header__toggle-btn input { 
   opacity: 0;
   width: 0;
@@ -305,8 +311,8 @@
 }
 
 .dark .card {
-  background-color: #eaffff;
-  color: #000;
+  background-color: #ffffff57;
+  color: #fff;
 }
 
 .card:focus {
@@ -317,7 +323,7 @@
 
 .dark .card:focus {
   outline: 0;
-  border: solid 3px #68dfec;
+  border: solid 1px #68dfec;
 }
 
 .card__checkbox {

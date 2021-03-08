@@ -6,7 +6,7 @@ import { ThemeProvider } from '../context/theme';
 import Task from './Task';
 
 const Test = () => {
-  const [tasks, setTasks] = useState([
+  const [tasks] = useState([
     {
       id: 1,
       title: 'Buy groceries',
@@ -74,10 +74,3 @@ test('done task renders a remove button', () => {
   const removeButton = card.querySelector('.card__button');
   expect(removeButton).toBeInTheDocument();
 });
-
-// test('not done task does not display its remove button', () => {
-//   render(<Test />);
-//   const card = screen.getByText(/Buy groceries/i).parentNode;
-//   const removeButton = card.querySelector('.card__button');
-//   expect(removeButton).toBeInTheDocument();
-// });

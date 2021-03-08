@@ -15,9 +15,3 @@ test('header renders h1', () => {
   const h1 = screen.getByText(/ToDo List/i);
   expect(h1).toBeInTheDocument();
 });
-
-// test('header renders toggle', () => {
-//   render(<Header />);
-//   const h1 = screen.querySelector('.toggle');
-//   expect(h1).toBeInTheDocument();
-// });
