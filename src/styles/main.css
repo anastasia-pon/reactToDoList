@@ -410,3 +410,12 @@
   width: 100vw;
   height: 9em;
 }
+
+.footer__git:hover {
+  color: #008492;
+  text-decoration: underline;
+}
+
+.dark .footer__git:hover {
+  color: #68dfec;
+}
