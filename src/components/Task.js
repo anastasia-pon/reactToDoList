@@ -31,7 +31,7 @@ const Task = props => {
             onClick={e => onRemove(e, task.id)}
             onKeyUp={e => (e.key === 'Enter' ? onRemove(e, task.id) : null)}
           >
-            Remove
+            <i className="fa fa-trash" aria-hidden="true" />
           </button>
         )
         : null}

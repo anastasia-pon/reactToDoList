@@ -11,9 +11,9 @@ const Header = () => {
         <input
           id="theme__toggle"
           type="checkbox"
-          onClick={themeToggle}
+          onChange={themeToggle}
           onKeyUp={e => (e.key === 'Enter' ? themeToggle() : null)}
-          defaultChecked={theme === 'dark'}
+          checked={theme === 'dark'}
         />
         <span className="header__toggle-btn__slider" />
       </label>

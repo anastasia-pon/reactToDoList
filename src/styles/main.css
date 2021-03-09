@@ -82,7 +82,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #2196F3;
+  background-color: #7ee5f1;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -179,6 +179,16 @@
   transition: all 0.3s;
 }
 
+.dark .form__input {
+  background-color:#ffffff6e;
+  color: #fff;
+}
+
+.dark .form__input::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
 .form__input:focus {
   outline: 0;
   background-color: transparent;
@@ -189,7 +199,7 @@
   transition: all 0.3s;
 }
 
-.dark .form__input:focus {
+.dark .form__input:focus::placeholder {
   color: #fff;
 }
 
@@ -311,7 +321,7 @@
 }
 
 .dark .card {
-  background-color: #ffffff57;
+  background-color: #ffffff6e;
   color: #fff;
 }
 
@@ -354,23 +364,19 @@
 
 .card__button {
   float: right;
-  padding: 0.5em;
-  background-color: #a4ebf3;
+  padding: 0.5em 0;
   border: none;
-  border-color: #009cad;
   border-radius: 2px;
   transition: all 0.3s;
 }
 
 .dark .card__button {
   background-color: transparent;
-  border: solid 1px #a4ebf3;
   color: #fff;
 }
 
 .dark .card__button:hover {
-  background-color: #a4ebf3;
-  color: #000;
+  color: #a4ebf3;
   transition: all 0.3s;
 }
 
@@ -380,7 +386,7 @@
 }
 
 .card__button:hover {
-  background-color: #a4ebf39c;
+  color: #009cad;
   transition: all 0.3s;
 }
 
